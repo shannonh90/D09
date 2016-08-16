@@ -11,8 +11,31 @@
 
 
 # Body
+def create_histogram(s):
+  # make a map of letters to number of times they appear in s 
+  hist = {}
+  for x in s:
+    hist[x] = hist.get(x, 0) + 1
+  return(hist)
+
 def most_frequent(s):
-    ...
+  #make list all lowercase
+  for letter in s:
+    letters = s.lower()
+
+  #create a histogram
+  hist = create_histogram(letters)
+
+  #for letter + values in histogram, return a list of letters & counts
+  t = []
+  for letter, count in hist.items():  #.items takes a dict >> tuples
+    t.append((count, letter))
+
+  #sort the list, return the letters + counts
+  t.sort(reverse = True)
+  for count, letter in t:
+    print(letter, count)
+
 
 
 ###############################################################################
@@ -35,3 +58,6 @@ def main():   # DO NOT CHANGE BELOW
 
 if __name__ == '__main__':
     main()
+
+
+
